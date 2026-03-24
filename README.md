@@ -2,8 +2,7 @@
 
 ## 📌 Overview
 
-Missed medical appointments reduce healthcare efficiency and lead to wasted resources.
-This project aims to predict whether a patient will miss their appointment and provide actionable insights to reduce no-show rates.
+While exploring datasets on Kaggle, I came across a medical appointment dataset. During the exploratory data analysis (EDA), I observed that a significant portion of patients were missing their scheduled appointments.
 
 ---
 
