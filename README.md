@@ -1,128 +1,105 @@
-#  No-Show Decision System
+# 🏥 Medical Appointment No-Show Prediction
 
-> A decision system that predicts appointment no-shows and recommends actions to improve attendance.
+## 📌 Overview
 
----
-
-##  Overview
-
-Missed medical appointments (no-shows) are a critical operational challenge in healthcare systems, leading to underutilized resources, increased waiting times, and financial inefficiencies.
-
-This project goes beyond traditional prediction by building a **decision-oriented system** that not only identifies high-risk patients using Logistic Regression, but also translates predictions into actionable interventions.
+Missed medical appointments reduce healthcare efficiency and lead to wasted resources.
+This project aims to predict whether a patient will miss their appointment and provide actionable insights to reduce no-show rates.
 
 ---
 
-##  Problem Statement
+## 🎯 Objectives
 
-A significant proportion of patients fail to attend scheduled appointments. These no-shows disrupt scheduling efficiency and reduce healthcare service quality.
-
-**Key Question:**
-
-> How can we proactively identify high-risk patients and take targeted actions to reduce missed appointments?
+* Identify factors associated with missed appointments
+* Build a predictive model to detect high-risk patients
+* Design a data-driven intervention strategy
 
 ---
 
-##  Solution Approach
+## 📊 Dataset
 
-This project formulates the problem as a **binary classification task** and extends it into a **risk-based decision framework**.
+The dataset contains patient appointment records, including:
 
-###  Key Components
-
-* Predict probability of no-show using Logistic Regression
-* Generate **individual risk scores**
-* Map risk levels to **operational actions**
-
----
-
-##  Methodology
-
-###  Data Processing
-
-* Cleaned and standardized patient records
-* Converted categorical variables into model-ready format
-* Handled inconsistencies in age and timestamps
-
-###  Feature Engineering
-
-* **Waiting Time** → Gap between scheduling and appointment
-* **Temporal Features** → Day-of-week patterns
-* **Behavioral Indicators** → Attendance-related signals
-* **Health Conditions** → Diabetes, hypertension, etc.
-
-###  Modeling
-
-* Logistic Regression used for:
-
-  * Interpretability
-  * Probabilistic output
-* Focus on **probability estimation**, not just classification
+* Demographics (Age, Gender)
+* Health conditions (Diabetes, Hypertension, etc.)
+* Appointment details (Scheduled date, Appointment date)
+* SMS reminder information
 
 ---
 
-##  Risk Scoring System
+## 🔍 Key Steps
 
-Instead of binary predictions, the model generates a **continuous risk score**:
+### 1. Data Preparation
 
-* `0` → Very low risk
-* `1` → Very high risk
+* Handled missing and inconsistent values
+* Converted date columns to proper format
 
-This enables **granular and flexible decision-making**.
+### 2. Feature Engineering
 
----
+* Created **waiting_days** (time between scheduling and appointment)
+* Extracted appointment day of week
+* Generated weekend indicator
 
-##  Decision Layer (Core Innovation)
+### 3. Modeling
 
-Predictions are transformed into **actionable strategies**:
+* Applied **Logistic Regression**
+* Addressed class imbalance using class weighting
 
-| Risk Score | Recommended Action   |
-| ---------- | -------------------- |
-| > 0.80     | 📞 Direct phone call |
-| 0.60–0.80  | 📩 SMS reminder      |
-| < 0.60     | ✅ No intervention    |
+### 4. Evaluation
 
----
-
-##  Key Insights
-
-* Longer waiting times significantly increase no-show probability
-* Reminder systems (SMS) improve attendance rates
-* Behavioral and temporal features outperform static demographics
+* Used confusion matrix, precision, recall, and F1-score
+* Focused on **recall for no-show cases**
 
 ---
 
-## 💼 Business Impact
+## 📈 Key Results
 
-* ✅ Reduces missed appointments
-* ✅ Improves resource utilization
-* ✅ Enables targeted interventions
-* ✅ Supports data-driven scheduling
+* Recall for no-show prediction improved to **~57%**
+* Model successfully identifies a majority of missed appointments
+* Trade-off: increased false positives (acceptable for this problem)
 
 ---
 
-##  Tech Stack
+## 🧠 Insights
+
+* Longer waiting times increase the likelihood of no-shows
+* SMS reminders are associated with improved attendance
+* Scheduling and behavioral factors are stronger predictors than medical conditions
+
+---
+
+## 🚀 Business Impact
+
+* Enables targeted interventions for high-risk patients
+* Reduces missed appointments
+* Improves resource utilization in healthcare systems
+
+---
+
+## ⚙️ How to Run
 
 ```bash
-Python
-Pandas
-NumPy
-Scikit-learn
-Matplotlib / Seaborn
+git clone https://github.com/your-username/no-show-prediction.git
+cd no-show-prediction
+pip install -r requirements.txt
 ```
 
----
-
-##  Future Improvements
-
-* Incorporate patient history for personalized modeling
-* Apply advanced models (e.g., Gradient Boosting)
-* Optimize decision thresholds using cost-sensitive learning
-* Deploy as a real-time decision support system
+Run the notebook to reproduce results.
 
 ---
 
-##  Conclusion
+## 💼 Skills Demonstrated
 
-This project demonstrates how machine learning can move beyond prediction into **decision intelligence**, where outputs directly inform operational actions.
+* Data Cleaning & Preprocessing
+* Feature Engineering
+* Handling Imbalanced Data
+* Logistic Regression Modeling
+* Model Evaluation
+* Data Visualization
+* Business-Oriented Analysis
 
-> The goal is not just accuracy — but real-world impact.
+---
+
+## 📌 Conclusion
+This project demonstrates how predictive modeling can be applied to a real-world healthcare problem, enabling data-driven decisions that improve operational efficiency.
+
 
